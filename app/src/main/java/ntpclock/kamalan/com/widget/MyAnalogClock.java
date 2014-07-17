@@ -15,7 +15,7 @@ public class MyAnalogClock extends View {
 
     private final float x;
     private final float y;
-    private final int r = 45;
+    private final int r = 180;
     private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     private Calendar mCalendar;
@@ -31,10 +31,10 @@ public class MyAnalogClock extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-//        mPaint.setColor(0xF0F0F0);
+//        mPaint.setColor(0xFF3300);
 //        mPaint.setStrokeWidth(4);
 //        canvas.drawCircle(x, y, r, mPaint);
-        canvas.save();
+//        canvas.save();
 
         float sec  = (float) mCalendar.get(Calendar.SECOND);
         float min  = (float) mCalendar.get(Calendar.MINUTE);
