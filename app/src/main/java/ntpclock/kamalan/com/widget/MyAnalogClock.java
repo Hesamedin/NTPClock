@@ -2,6 +2,7 @@ package ntpclock.kamalan.com.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
@@ -17,6 +18,7 @@ public class MyAnalogClock extends View {
     private final float y;
     private final int r = 180;
     private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint mCPaint;
 
     private Calendar mCalendar;
 
@@ -26,15 +28,20 @@ public class MyAnalogClock extends View {
         this.y = y;
         this.mCalendar = Calendar.getInstance();
         this.mCalendar.setTime(date);
+
+        this.mCPaint = new Paint();
+        mCPaint.setAntiAlias(true);
+        mCPaint.setColor(Color.DKGRAY);
+        mCPaint.setStrokeWidth(10.0f);
+        mCPaint.setStrokeCap(Paint.Cap.BUTT);
+        mCPaint.setStyle(Paint.Style.STROKE);
     }
 
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-//        mPaint.setColor(0xFF3300);
-//        mPaint.setStrokeWidth(4);
-//        canvas.drawCircle(x, y, r, mPaint);
-//        canvas.save();
+        canvas.drawCircle(x, y, 200, mCPaint);
+        canvas.save();
 
         float sec  = (float) mCalendar.get(Calendar.SECOND);
         float min  = (float) mCalendar.get(Calendar.MINUTE);
